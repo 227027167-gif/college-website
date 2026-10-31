@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - SkillSwap</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .notifications-page {
+            min-height: 650px;
+            padding: 70px 8%;
+            background: #f8f9fc;
+        }
+
+        .notification-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+
+        .notification-header h1 {
+            font-size: 38px;
+            margin: 8px 0;
+        }
+
+        .notification-header p {
+            color: #777;
+        }
+
+        .read-all-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #6c4df6;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .read-all-btn:hover {
+            background: #5738d6;
+        }
+
+        .notification-list {
+            max-width: 850px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .notification-item {
+            background: white;
+            padding: 22px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            border-left: 4px solid #6c4df6;
+        }
+
+        .notification-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: #eeeaff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .notification-content {
+            flex: 1;
+        }
+
+        .notification-content h3 {
+            margin-bottom: 7px;
+            font-size: 17px;
+        }
+
+        .notification-content p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .notification-time {
+            margin-top: 8px;
+            color: #999;
+            font-size: 13px;
+        }
+
+        .notification-action {
+            padding: 9px 15px;
+            border: 1px solid #6c4df6;
+            background: white;
+            color: #6c4df6;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        .notification-action:hover {
+            background: #6c4df6;
+            color: white;
+        }
+
+        .notification-item.read {
+            border-left-color: #ddd;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 700px) {
+            .notification-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .notification-item {
+                align-items: flex-start;
+            }
+
+            .notification-action {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+
+        <div class="logo">Skill<span>Swap</span></div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="explore.html">Explore Skills</a>
+            <a href="find-partners.html">Find Partners</a>
+            <a href="about.html">About</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="register.html" class="join-btn">Join Now</a>
+        </div>
+
+    </nav>
+</header>
+
+
+<section class="notifications-page">
+
+    <div class="notification-header">
+
+        <div>
+            <p class="small-title">✦ NOTIFICATIONS</p>
+            <h1>My Notifications</h1>
+            <p>Stay updated with your latest SkillSwap activities.</p>
+        </div>
+
+        <button class="read-all-btn" onclick="markAllRead()">
+            Mark All as Read
+        </button>
+
+    </div>
+
+
+    <div class="notification-list">
+
+        <!-- Notification 1 -->
+        <div class="notification-item">
+
+            <div class="notification-icon">
+                🤝
+            </div>
+
+            <div class="notification-content">
+                <h3>New Skill Request</h3>
+
+                <p>
+                    Arun Kumar accepted your Python learning request.
+                </p>
+
+                <div class="notification-time">
+                    10 minutes ago
+                </div>
+            </div>
+
+            <button class="notification-action"
+                    onclick="viewRequest()">
+                View
+            </button>
+
+        </div>
+
+
+        <!-- Notification 2 -->
+        <div class="notification-item">
+
+            <div class="notification-icon">
+                📚
+            </div>
+
+            <div class="notification-content">
+                <h3>Learning Reminder</h3>
+
+                <p>
+                    Continue your Python learning journey today.
+                </p>
+
+                <div class="notification-time">
+                    1 hour ago
+                </div>
+            </div>
+
+            <button class="notification-action"
+                    onclick="continueLearning()">
+                Learn
+            </button>
+
+        </div>
+
+
+        <!-- Notification 3 -->
+        <div class="notification-item">
+
+            <div class="notification-icon">
+                🎉
+            </div>
+
+            <div class="notification-content">
+                <h3>Progress Update</h3>
+
+                <p>
+                    You have completed 3 out of 5 Python lessons.
+                </p>
+
+                <div class="notification-time">
+                    Yesterday
+                </div>
+            </div>
+
+            <button class="notification-action"
+                    onclick="viewProgress()">
+                View
+            </button>
+
+        </div>
+
+
+        <!-- Notification 4 -->
+        <div class="notification-item">
+
+            <div class="notification-icon">
+                💬
+            </div>
+
+            <div class="notification-content">
+                <h3>New Message</h3>
+
+                <p>
+                    Rahul M sent you a new message.
+                </p>
+
+                <div class="notification-time">
+                    2 days ago
+                </div>
+            </div>
+
+            <button class="notification-action"
+                    onclick="openMessages()">
+                Message
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+    function markAllRead() {
+
+        const notifications =
+            document.querySelectorAll(".notification-item");
+
+        notifications.forEach(function(item) {
+            item.classList.add("read");
+        });
+
+        alert("✅ All notifications marked as read!");
+    }
+
+
+    function viewRequest() {
+        window.location.href = "my-requests.html";
+    }
+
+
+    function continueLearning() {
+        window.location.href = "learning-activity.html";
+    }
+
+
+    function viewProgress() {
+        window.location.href = "progress.html";
+    }
+
+
+    function openMessages() {
+        window.location.href = "messages.html";
+    }
+
+</script>
+
+</body>
+</html>

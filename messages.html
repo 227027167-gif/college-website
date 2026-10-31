@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - SkillSwap</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .messages-page {
+            min-height: 650px;
+            padding: 60px 8%;
+            background: #f8f9fc;
+        }
+
+        .messages-header {
+            margin-bottom: 30px;
+        }
+
+        .messages-header h1 {
+            font-size: 38px;
+            margin: 8px 0;
+        }
+
+        .messages-header p {
+            color: #777;
+        }
+
+        .messages-container {
+            max-width: 950px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 330px 1fr;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            min-height: 500px;
+        }
+
+        .conversation-list {
+            border-right: 1px solid #eee;
+        }
+
+        .conversation-title {
+            padding: 22px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .conversation-title h2 {
+            font-size: 20px;
+        }
+
+        .conversation {
+            padding: 18px;
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            cursor: pointer;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .conversation:hover {
+            background: #f7f5ff;
+        }
+
+        .conversation.active {
+            background: #eeeaff;
+            border-left: 4px solid #6c4df6;
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #eeeaff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+            flex-shrink: 0;
+        }
+
+        .conversation-info {
+            flex: 1;
+        }
+
+        .conversation-info h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .conversation-info p {
+            font-size: 13px;
+            color: #777;
+        }
+
+        .time {
+            font-size: 11px;
+            color: #999;
+        }
+
+        .chat-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .chat-header h3 {
+            margin-bottom: 4px;
+        }
+
+        .online {
+            color: #28a745;
+            font-size: 12px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 25px;
+            background: #fafaff;
+            overflow-y: auto;
+            max-height: 350px;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 12px 16px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .received {
+            background: white;
+            border: 1px solid #eee;
+        }
+
+        .sent {
+            background: #6c4df6;
+            color: white;
+            margin-left: auto;
+        }
+
+        .message-time {
+            display: block;
+            font-size: 10px;
+            margin-top: 5px;
+            opacity: 0.7;
+        }
+
+        .message-input {
+            padding: 16px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+
+        .message-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .message-input input:focus {
+            border-color: #6c4df6;
+        }
+
+        .send-btn {
+            padding: 12px 20px;
+            border: none;
+            background: #6c4df6;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .send-btn:hover {
+            background: #5738d6;
+        }
+
+        @media (max-width: 800px) {
+            .messages-container {
+                grid-template-columns: 1fr;
+            }
+
+            .conversation-list {
+                display: none;
+            }
+
+            .message {
+                max-width: 85%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+
+        <div class="logo">Skill<span>Swap</span></div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="explore.html">Explore Skills</a>
+            <a href="find-partners.html">Find Partners</a>
+            <a href="about.html">About</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="register.html" class="join-btn">Join Now</a>
+            <a href="dashboard.html" class="login-btn">Dashboard</a>
+        </div>
+
+    </nav>
+</header>
+
+
+<section class="messages-page">
+
+    <div class="messages-header">
+        <p class="small-title">✦ MESSAGES</p>
+        <h1>My Conversations</h1>
+        <p>Connect and communicate with your SkillSwap partners.</p>
+    </div>
+
+
+    <div class="messages-container">
+
+        <!-- LEFT SIDE -->
+        <div class="conversation-list">
+
+            <div class="conversation-title">
+                <h2>Conversations</h2>
+            </div>
+
+
+            <div class="conversation active"
+                 onclick="selectPerson('Arun Kumar')">
+
+                <div class="avatar">👨🏻‍💻</div>
+
+                <div class="conversation-info">
+                    <h3>Arun Kumar</h3>
+                    <p id="preview-arun">Hi! I can help you learn Python.</p>
+                </div>
+
+                <span class="time">Now</span>
+
+            </div>
+
+
+            <div class="conversation"
+                 onclick="selectPerson('Priya S')">
+
+                <div class="avatar">👩🏻‍🎨</div>
+
+                <div class="conversation-info">
+                    <h3>Priya S</h3>
+                    <p id="preview-priya">Let's discuss UI Design.</p>
+                </div>
+
+                <span class="time">1h</span>
+
+            </div>
+
+
+            <div class="conversation"
+                 onclick="selectPerson('Rahul M')">
+
+                <div class="avatar">🎬</div>
+
+                <div class="conversation-info">
+                    <h3>Rahul M</h3>
+                    <p id="preview-rahul">Photography tips available!</p>
+                </div>
+
+                <span class="time">2h</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE CHAT -->
+        <div class="chat-section">
+
+            <div class="chat-header">
+
+                <div class="avatar" id="chatAvatar">
+                    👨🏻‍💻
+                </div>
+
+                <div>
+                    <h3 id="chatName">Arun Kumar</h3>
+                    <span class="online">● Online</span>
+                </div>
+
+            </div>
+
+
+            <div class="chat-messages" id="chatMessages"></div>
+
+
+            <div class="message-input">
+
+                <input
+                    type="text"
+                    id="messageInput"
+                    placeholder="Type your message..."
+                    onkeydown="handleEnter(event)"
+                >
+
+                <button class="send-btn" onclick="sendMessage()">
+                    Send
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+    let selectedPerson = "Arun Kumar";
+
+
+    let conversations = {
+
+        "Arun Kumar": [
+            {
+                type: "received",
+                text: "Hi! I can help you learn Python.",
+                time: "10:30 AM"
+            },
+            {
+                type: "sent",
+                text: "That's great! I want to improve my Python skills.",
+                time: "10:32 AM"
+            },
+            {
+                type: "received",
+                text: "Sure! We can start with Python basics.",
+                time: "10:33 AM"
+            }
+        ],
+
+        "Priya S": [
+            {
+                type: "received",
+                text: "Hi! Let's discuss UI Design.",
+                time: "9:20 AM"
+            },
+            {
+                type: "sent",
+                text: "Sure! I want to learn UI Design from you.",
+                time: "9:25 AM"
+            }
+        ],
+
+        "Rahul M": [
+            {
+                type: "received",
+                text: "Hi! I can share some Photography tips.",
+                time: "8:15 AM"
+            },
+            {
+                type: "sent",
+                text: "That would be helpful. Thank you!",
+                time: "8:20 AM"
+            }
+        ]
+
+    };
+
+
+    function showMessages() {
+
+        const chat =
+            document.getElementById("chatMessages");
+
+        chat.innerHTML = "";
+
+        conversations[selectedPerson].forEach(function(message) {
+
+            const div =
+                document.createElement("div");
+
+            div.className =
+                "message " + message.type;
+
+            div.innerHTML =
+                message.text +
+                '<span class="message-time">' +
+                message.time +
+                '</span>';
+
+            chat.appendChild(div);
+
+        });
+
+        chat.scrollTop = chat.scrollHeight;
+    }
+
+
+    function selectPerson(person) {
+
+        selectedPerson = person;
+
+        document.getElementById("chatName").innerText =
+            person;
+
+
+        if (person === "Arun Kumar") {
+
+            document.getElementById("chatAvatar").innerText =
+                "👨🏻‍💻";
+
+        }
+
+        else if (person === "Priya S") {
+
+            document.getElementById("chatAvatar").innerText =
+                "👩🏻‍🎨";
+
+        }
+
+        else {
+
+            document.getElementById("chatAvatar").innerText =
+                "🎬";
+
+        }
+
+
+        document.querySelectorAll(".conversation")
+            .forEach(function(item) {
+
+                item.classList.remove("active");
+
+            });
+
+
+        event.currentTarget.classList.add("active");
+
+        showMessages();
+    }
+
+
+    function sendMessage() {
+
+        const input =
+            document.getElementById("messageInput");
+
+        const text =
+            input.value.trim();
+
+
+        if (text === "") {
+            return;
+        }
+
+
+        conversations[selectedPerson].push({
+
+            type: "sent",
+
+            text: text,
+
+            time: "Just now"
+
+        });
+
+
+        updatePreview(text);
+
+        input.value = "";
+
+        showMessages();
+    }
+
+
+    function updatePreview(text) {
+
+        if (selectedPerson === "Arun Kumar") {
+
+            document.getElementById("preview-arun").innerText =
+                text;
+
+        }
+
+        else if (selectedPerson === "Priya S") {
+
+            document.getElementById("preview-priya").innerText =
+                text;
+
+        }
+
+        else {
+
+            document.getElementById("preview-rahul").innerText =
+                text;
+
+        }
+
+    }
+
+
+    function handleEnter(event) {
+
+        if (event.key === "Enter") {
+
+            sendMessage();
+
+        }
+
+    }
+
+
+    showMessages();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - SkillSwap</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                Skill<span>Swap</span>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="explore.html">Explore Skills</a>
+                <a href="find-partners.html">Find Partners</a>
+                <a href="about.html">About</a>
+            </div>
+
+            <div class="nav-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="register.html" class="join-btn">Join Now</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <main class="register-page">
+
+        <div class="register-card">
+
+            <div class="register-heading">
+
+                <p class="small-title">✦ WELCOME BACK</p>
+
+                <h1>Login to SkillSwap</h1>
+
+                <p>
+                    Continue your learning journey.
+                </p>
+
+            </div>
+
+
+            <form>
+
+                <label>Email Address</label>
+
+                <input
+                    type="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+
+                <button type="submit" class="register-btn">
+                    Login
+                </button>
+
+            </form>
+
+
+            <p class="login-text">
+                Don't have an account?
+                <a href="register.html">Create Account</a>
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            alert("🎉 Login Successful! Welcome back to SkillSwap.");
+
+            window.location.href = "dashboard.html";
+
+        });
+    </script>
+
+</body>
+</html>

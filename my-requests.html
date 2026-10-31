@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Requests - SkillSwap</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .requests-page {
+            min-height: 700px;
+            padding: 60px 8%;
+            background: #f8f9fc;
+        }
+
+        .requests-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .requests-header h1 {
+            font-size: 38px;
+            margin: 8px 0;
+        }
+
+        .requests-header p {
+            color: #777;
+        }
+
+        .stats {
+            max-width: 950px;
+            margin: 0 auto 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 22px;
+            text-align: center;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .stat-card h2 {
+            color: #6c4df6;
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .requests-list {
+            max-width: 950px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .request-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            text-align: center;
+        }
+
+        .request-avatar {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: #eeeaff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .request-card h3 {
+            margin-bottom: 6px;
+        }
+
+        .request-role {
+            color: #6c4df6;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .request-details {
+            text-align: left;
+            background: #f8f9fc;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .request-details p {
+            font-size: 13px;
+            color: #666;
+            margin: 7px 0;
+        }
+
+        .status-label {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .status-select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            outline: none;
+        }
+
+        .message-btn {
+            display: block;
+            width: 100%;
+            padding: 11px;
+            background: #6c4df6;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .message-btn:hover {
+            background: #5738d6;
+        }
+
+        @media (max-width: 900px) {
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .requests-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .requests-header h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Skill<span>Swap</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="explore.html">Explore Skills</a>
+            <a href="find-partners.html">Find Partners</a>
+            <a href="about.html">About</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="register.html" class="join-btn">Join Now</a>
+        </div>
+
+    </nav>
+
+</header>
+
+
+<section class="requests-page">
+
+    <div class="requests-header">
+
+        <p class="small-title">✦ MY ACTIVITY</p>
+
+        <h1>My Skill Requests</h1>
+
+        <p>
+            Track your learning requests and skill exchange progress.
+        </p>
+
+    </div>
+
+
+    <!-- Statistics -->
+
+    <div class="stats">
+
+        <div class="stat-card">
+            <h2>3</h2>
+            <p>Total Requests</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>1</h2>
+            <p>Pending</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>1</h2>
+            <p>Accepted</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>1</h2>
+            <p>Completed</p>
+        </div>
+
+    </div>
+
+
+    <!-- Requests -->
+
+    <div class="requests-list">
+
+
+        <!-- Arun -->
+
+        <div class="request-card">
+
+            <div class="request-avatar">
+                👨🏻‍💻
+            </div>
+
+            <h3>Arun Kumar</h3>
+
+            <p class="request-role">
+                Python Mentor
+            </p>
+
+            <div class="request-details">
+
+                <p>
+                    <strong>Skill:</strong> Python
+                </p>
+
+                <p>
+                    <strong>Requested:</strong>
+                    05 October 2026
+                </p>
+
+            </div>
+
+            <span class="status-label">
+                Request Status
+            </span>
+
+            <select
+                class="status-select"
+                onchange="updateStatus(this, 'Arun Kumar')">
+
+                <option>Pending</option>
+                <option>Accepted</option>
+                <option>Learning</option>
+                <option>Completed</option>
+
+            </select>
+
+            <a href="messages.html"
+               class="message-btn">
+                💬 Message
+            </a>
+
+        </div>
+
+
+        <!-- Priya -->
+
+        <div class="request-card">
+
+            <div class="request-avatar">
+                👩🏻‍🎨
+            </div>
+
+            <h3>Priya S</h3>
+
+            <p class="request-role">
+                UI Designer
+            </p>
+
+            <div class="request-details">
+
+                <p>
+                    <strong>Skill:</strong> UI Design
+                </p>
+
+                <p>
+                    <strong>Requested:</strong>
+                    03 October 2026
+                </p>
+
+            </div>
+
+            <span class="status-label">
+                Request Status
+            </span>
+
+            <select
+                class="status-select"
+                onchange="updateStatus(this, 'Priya S')">
+
+                <option>Pending</option>
+                <option selected>Accepted</option>
+                <option>Learning</option>
+                <option>Completed</option>
+
+            </select>
+
+            <a href="messages.html"
+               class="message-btn">
+                💬 Message
+            </a>
+
+        </div>
+
+
+        <!-- Rahul -->
+
+        <div class="request-card">
+
+            <div class="request-avatar">
+                🎬
+            </div>
+
+            <h3>Rahul M</h3>
+
+            <p class="request-role">
+                Video Editor
+            </p>
+
+            <div class="request-details">
+
+                <p>
+                    <strong>Skill:</strong> Photography
+                </p>
+
+                <p>
+                    <strong>Requested:</strong>
+                    01 October 2026
+                </p>
+
+            </div>
+
+            <span class="status-label">
+                Request Status
+            </span>
+
+            <select
+                class="status-select"
+                onchange="updateStatus(this, 'Rahul M')">
+
+                <option>Pending</option>
+                <option>Accepted</option>
+                <option>Learning</option>
+                <option selected>Completed</option>
+
+            </select>
+
+            <a href="messages.html"
+               class="message-btn">
+                💬 Message
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<script>
+
+    function updateStatus(select, person) {
+
+        alert(
+            "✅ " +
+            person +
+            "'s request status updated to: " +
+            select.value
+        );
+
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Send Skill Request - SkillSwap</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                Skill<span>Swap</span>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="explore.html">Explore Skills</a>
+                <a href="find-partners.html">Find Partners</a>
+                <a href="index.html#about">About</a>
+            </div>
+
+            <div class="nav-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="register.html" class="join-btn">Join Now</a>
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="register-page">
+
+        <div class="register-card">
+
+            <div class="register-heading">
+
+                <p class="small-title">✦ SKILL REQUEST</p>
+
+                <h1>Send a Skill Request</h1>
+
+                <p>
+                    Tell your partner what you want to learn.
+                </p>
+
+            </div>
+
+            <form id="requestForm">
+
+                <label>Your Name</label>
+
+                <input
+                    type="text"
+                    placeholder="Enter your name"
+                    required
+                >
+
+                <label>Skill You Want To Learn</label>
+
+                <input
+                    type="text"
+                    placeholder="Example: Python"
+                    required
+                >
+
+                <label>Message</label>
+
+                <textarea
+                    placeholder="Write a short message..."
+                    required
+                    style="width:100%; min-height:120px; padding:14px; border:1px solid #ddd8eb; border-radius:10px; resize:none; font-size:14px;"
+                ></textarea>
+
+                <button type="submit" class="register-btn">
+                    Send Request
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+<script>
+    document.getElementById("requestForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        alert("🎉 Skill Request Sent Successfully!");
+
+        window.location.href = "my-requests.html";
+
+    });
+</script>
+</body>
+</html>

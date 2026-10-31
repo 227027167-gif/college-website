@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explore Skills - SkillSwap</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                Skill<span>Swap</span>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="explore.html">Explore Skills</a>
+                <a href="find-partners.html">Find Partners</a>
+                <a href="about.html">About</a>
+            </div>
+
+            <div class="nav-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="register.html" class="join-btn">Join Now</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="explore-hero">
+
+            <p class="small-title">✦ EXPLORE SKILLS</p>
+
+            <h1>
+                Discover a skill.
+                <br>
+                <span>Start learning.</span>
+            </h1>
+
+            <p>
+                Explore skills shared by students and
+                find something exciting to learn.
+            </p>
+
+            <input
+    type="text"
+    id="skillSearch"
+    placeholder="Search for a skill..."
+>
+
+<button onclick="searchSkill()">Search</button>
+
+</section>
+
+
+        <section class="explore-section">
+
+            <div class="section-heading">
+
+                <p class="small-title">
+                    SKILL CATEGORIES
+                </p>
+
+                <h2>
+                    Choose what you want to learn
+                </h2>
+
+            </div>
+
+
+            <div class="explore-grid">
+
+                <div class="explore-card">
+
+                    <div class="explore-icon">
+                        💻
+                    </div>
+
+                    <h3>
+                        Programming
+                    </h3>
+
+                    <p>
+                        Python, C, C++, HTML, CSS,
+JavaScript, Web Development
+                    </p>
+<button onclick="alert('💻 Programming skills: Python, C, C++, JavaScript, Web Development')">
+    Explore →
+</button>
+
+                </div>
+
+
+                <div class="explore-card">
+
+                    <div class="explore-icon">
+                        🎨
+                    </div>
+
+                    <h3>
+                        Design
+                    </h3>
+
+                    <p>
+                        UI Design, Canva, Photoshop,
+                        Graphic Design
+                    </p>
+
+                    <button onclick="alert('🎨 Design skills: UI Design, Canva, Photoshop, Graphic Design')">
+    Explore →
+</button>
+
+                </div>
+
+
+                <div class="explore-card">
+
+                    <div class="explore-icon">
+                        🎬
+                    </div>
+
+                    <h3>
+                        Video Editing
+                    </h3>
+
+                    <p>
+                        Premiere Pro, CapCut,
+                        Reels and Video Creation
+                    </p>
+
+                    <button onclick="alert('🎬 Video Editing: Premiere Pro, CapCut, Reels and Video Creation')">
+    Explore →
+</button>
+
+                </div>
+
+
+                <div class="explore-card">
+
+                    <div class="explore-icon">
+                        📸
+                    </div>
+
+                    <h3>
+                        Photography
+                    </h3>
+
+                    <p>
+                        Camera Skills, Mobile Photography,
+                        Photo Editing
+                    </p>
+
+                    <button onclick="alert('📸 Photography: Camera Skills, Mobile Photography, Photo Editing')">
+    Explore →
+</button>
+
+                </div>
+
+
+                <div class="explore-card">
+
+                    <div class="explore-icon">
+                        🎤
+                    </div>
+
+                    <h3>
+                        Communication
+                    </h3>
+
+                    <p>
+                        Public Speaking, Presentation,
+                        English Communication
+                    </p>
+
+                   <button onclick="alert('🎤 Communication: Public Speaking, Presentation, English Communication')">
+    Explore →
+</button>
+
+                </div>
+
+
+                <div class="explore-card">
+
+                    <div class="explore-icon">
+                        📊
+                    </div>
+
+                    <h3>
+                        Business
+                    </h3>
+
+                    <p>
+                        Marketing, Entrepreneurship,
+                        Management Skills
+                    </p>
+
+                    <button onclick="alert('📊 Business: Marketing, Entrepreneurship, Management Skills')">
+    Explore →
+</button>
+
+                </div>
+
+
+                <div class="explore-card">
+
+                    <div class="explore-icon">
+                        🎵
+                    </div>
+
+                    <h3>
+                        Music
+                    </h3>
+
+                    <p>
+                        Singing, Guitar, Keyboard
+                        and Music Production
+                    </p>
+
+                   <button onclick="alert('🎵 Music: Singing, Guitar, Keyboard and Music Production')">
+    Explore →
+</button>
+                </div>
+
+
+                <div class="explore-card">
+
+                    <div class="explore-icon">
+                        🧠
+                    </div>
+
+                    <h3>
+                        Other Skills
+                    </h3>
+
+                    <p>
+                        Languages, Writing, Fitness
+                        and many more
+                    </p>
+
+                    <button onclick="alert('🧠 Other Skills: Languages, Writing, Fitness and many more')">
+    Explore →
+</button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div class="footer-logo">
+            Skill<span>Swap</span>
+        </div>
+
+        <p>
+            Learn together. Grow together.
+        </p>
+
+        <p class="copyright">
+            © 2026 SkillSwap. All rights reserved.
+        </p>
+
+    </footer>
+<script>
+function searchSkill() {
+    let skill = document.getElementById("skillSearch").value.trim();
+
+    if (skill === "") {
+        alert("Please enter a skill to search.");
+        return;
+    }
+
+    alert("🔍 Skill found: " + skill + " — Check the skill categories below!");
+}
+</script>
+</body>
+</html>

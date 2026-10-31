@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Join SkillSwap</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                Skill<span>Swap</span>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="explore.html">Explore Skills</a>
+                <a href="find-partners.html">Find Partners</a>
+                <a href="about.html">About</a>
+            </div>
+
+            <div class="nav-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <main class="register-page">
+
+        <div class="register-card">
+
+            <div class="register-heading">
+
+                <p class="small-title">✦ JOIN SKILLSWAP</p>
+
+                <h1>
+                    Create your account
+                </h1>
+
+                <p>
+                    Start learning, sharing and growing
+                    with other students.
+                </p>
+
+            </div>
+
+
+            <form>
+
+                <label>Full Name</label>
+
+                <input
+                    type="text"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+
+                <label>Email Address</label>
+
+                <input
+                    type="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Create a password"
+                    required
+                >
+
+
+                <label>Confirm Password</label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm your password"
+                    required
+                >
+
+
+                <button type="submit" class="register-btn">
+                    Create Account
+                </button>
+
+            </form>
+
+
+            <p class="login-text">
+                Already have an account?
+                <a href="login.html">Login</a>
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <div class="footer-logo">
+            Skill<span>Swap</span>
+        </div>
+
+        <p>
+            Learn together. Grow together.
+        </p>
+
+        <p class="copyright">
+            © 2026 SkillSwap. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+                alert("❌ Passwords do not match!");
+                return;
+            }
+
+            alert("🎉 Registered Successfully! Welcome to SkillSwap.");
+
+            window.location.href = "login.html";
+
+        });
+    </script>
+
+</body>
+</html>
